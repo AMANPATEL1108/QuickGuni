@@ -533,11 +533,19 @@ transition: transform 0.3s ease-out;
 }
 
 input {
-width: 100%;
-padding: 8px;
-margin-bottom: 12px;
-box-sizing: border-box;
-transition: border-color 0.3s ease-out;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-out;
+    border: 1px solid #ccc;
+    min-height: 45px;
+    border-radius: 5px;
+}
+label {
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
 }
 
 input:focus {
@@ -569,6 +577,7 @@ font-size: 15px;
 padding: 16px 10px;
 text-transform: uppercase;
 font-weight: 700;
+max-width: 500px;
 }
 
 .regi-page-con-in {
@@ -778,4 +787,42 @@ ul.tabing-list li a {
 
 .inner-dash-details.view-details-top {
     margin-top: 55px;
+}
+
+.dashin-back {
+    padding: 50px 0;
+}
+
+
+.dashin-back .delete-userbox {
+    max-width: 500px;
+    border: 5px solid #252525;
+    padding: 36px;
+    margin: auto;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    text-align: center;
+    background-color: #fff1de;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+a{
+    text-decoration: none;
+}
+table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+    background-color: #fcdfad;
+}
+table.dataTable tbody tr {
+    background-color: #feecd0;
+}
+.container.edit-dash {
+    padding: 50px 0;
+}
+
+.change-password-form .rows {
+    width: 100%;
+    max-width: 100%;
+}
+.change-password-form .rows .cols-50 {
+    width: 100%;
+    text-align: left;
 }

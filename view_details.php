@@ -9,6 +9,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || !$_SESSION[
     exit;
 }
 
+
 // Get the user ID from the query string
 $userID = isset($_GET['id']) ? $_GET['id'] : null;
 
@@ -30,6 +31,7 @@ if ($userID) {
             $name = $user['name'];
             $email = $user['email'];
             $address = $user['address'];
+            $phone = $user['phone_number'];
             $enrollmentNumber = $user['enrollment_number'];
             $accommodation = $user['accommodation'];
             $joinDate = $user['join_date'];
@@ -81,9 +83,10 @@ if ($userID) {
              echo '    </div>';
              echo '</div>';
 
-            echo '<div class="container">';
+            echo '<div class="container view-dashs">';
 
             // Display additional fields from the form using the HTML layout
+            
             echo '<div class="inner-dash-details view-details-top">';
             echo '    <div class="rows heads-in-sub">';
             echo '        <div class="cols-50">';
@@ -107,6 +110,12 @@ if ($userID) {
             echo '            <div class="info-divs">';
             echo '                <h4>Address</h4>';
             echo "                <p>{$address}</p>";
+            echo '            </div>';
+            echo '        </div>';
+            echo '        <div class="cols-50">';
+            echo '            <div class="info-divs">';
+            echo '                <h4>Phone</h4>';
+            echo "                <p>{$phone}</p>";
             echo '            </div>';
             echo '        </div>';
             echo '        <div class="cols-50">';

@@ -9,6 +9,13 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || !$_SESSION[
     exit;
 }
 
+// Check if the user clicked on the "Change Password" link for a specific user
+if (isset($_GET['action']) && $_GET['action'] === 'change_password' && isset($_GET['id'])) {
+    $changePasswordUserID = $_GET['id'];
+    header("Location: change_password.php?id=$changePasswordUserID"); // Redirect to the change password page for the specific user
+    exit;
+}
+
 try {
     // Fetch limited registration details from the database
     $stmt = $conn->prepare("SELECT id, name, enrollment_number, current_degree FROM users");
@@ -66,6 +73,7 @@ $conn->close();
                                 <th>Details</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
+                                <th>Change Password</th> <!-- New column for Change Password -->
                             </tr>
                         </thead>
                         <tbody>
@@ -78,6 +86,7 @@ $conn->close();
                                     <td><a href="view_details.php?id=<?php echo $user['id']; ?>">View Details</a></td>
                                     <td><a href="edit_user.php?id=<?php echo $user['id']; ?>">Edit</a></td>
                                     <td><a href="delete_user.php?id=<?php echo $user['id']; ?>">Delete</a></td>
+                                    <td><a href="?action=change_password&id=<?php echo $user['id']; ?>">Change Password</a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
