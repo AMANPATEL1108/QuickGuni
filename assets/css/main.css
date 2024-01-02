@@ -775,3 +775,7 @@ ul.tabing-list li a {
 .admin-dash .dashboard-sidebar {
     justify-content: center;
 }
+
+.inner-dash-details.view-details-top {
+    margin-top: 55px;
+}

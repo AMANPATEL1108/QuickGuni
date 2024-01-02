@@ -64,6 +64,8 @@ $conn->close();
                                 <th>Enrollment Number</th>
                                 <th>Degree</th>
                                 <th>Details</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +76,8 @@ $conn->close();
                                     <td><?php echo $user['enrollment_number']; ?></td>
                                     <td><?php echo $user['current_degree']; ?></td>
                                     <td><a href="view_details.php?id=<?php echo $user['id']; ?>">View Details</a></td>
+                                    <td><a href="edit_user.php?id=<?php echo $user['id']; ?>">Edit</a></td>
+                                    <td><a href="delete_user.php?id=<?php echo $user['id']; ?>">Delete</a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
