@@ -85,7 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div> 
                                 <div class="cols-50">
                                     <label for="email">Email:</label>
-                                    <input type="email" name="email" required>
+                                    <input type="email" name="email"  required>
+                                    <div id="email-validation-message"></div>
+
                                 </div> 
                             </div> 
                             <div class="rows">
@@ -248,6 +250,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
 
                             <div class="rows submt-rows">
+                            <input type="hidden" id="email-validation-result" name="email_validation_result" value="">
+
                                  <input type="submit" value="Submit">
                             </div>
             

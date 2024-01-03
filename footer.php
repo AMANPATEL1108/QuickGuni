@@ -15,6 +15,40 @@
 <script src="script.js"></script>
 
 
+<script>
+    $(document).ready(function () {
+        // Attach an event listener to the email input field
+        $('input[name="email"]').on('input', function () {
+            // Get the entered email
+            var email = $(this).val();
+
+            // Validate the email using AJAX
+            $.ajax({
+                url: 'validate_email.php', // Replace with the actual URL to your validation script
+                type: 'POST',
+                data: { email: email },
+                success: function (response) {
+                    // Update the email validation result in the hidden input field
+                    $('#email-validation-result').val(response);
+
+                    // Display the validation message
+                    $('#email-validation-message').html(response);
+                }
+            });
+        });
+
+        // Prevent form submission if email is not validated
+        $('#registration-form').submit(function (e) {
+            var validationResult = $('#email-validation-result').val();
+
+            if (validationResult !== 'valid') {
+                e.preventDefault();
+                alert('Please fix the email validation error before submitting.');
+            }
+        });
+    });
+</script>
+
 
 <script>
     $(window).on("load", function() {

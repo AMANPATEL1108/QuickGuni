@@ -15,19 +15,21 @@ include 'db_config.php';
 // Assuming you have a function to get user data based on the user_id
 function getUserData($userId, $conn) {
     // Replace this with your actual database query
-    $stmt = $conn->prepare("SELECT name FROM users WHERE id = ?");
+    $stmt = $conn->prepare("SELECT name, is_admin FROM users WHERE id = ?");
     $stmt->bind_param("i", $userId);
     $stmt->execute();
-    $stmt->bind_result($userName);
-    
+    $stmt->bind_result($userName, $isAdmin);
+
     if ($stmt->fetch()) {
-        return $userName;
+        return ['name' => $userName, 'is_admin' => $isAdmin];
     } else {
         return false;
     }
 }
 
-$userName = isset($_SESSION['user_id']) ? getUserData($_SESSION['user_id'], $conn) : false;
+$userData = isset($_SESSION['user_id']) ? getUserData($_SESSION['user_id'], $conn) : false;
+$userName = $userData ? $userData['name'] : false;
+$isUserAdmin = $userData ? $userData['is_admin'] : false;
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +44,7 @@ $userName = isset($_SESSION['user_id']) ? getUserData($_SESSION['user_id'], $con
 
     <!-- Your custom CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+    
 </head>
 
 <body>
@@ -60,7 +63,7 @@ $userName = isset($_SESSION['user_id']) ? getUserData($_SESSION['user_id'], $con
                             <li><a href="<?php echo $home_url; ?>">Home</a></li>
                             <li><a href="<?php echo $home_url; ?>/about.php">About</a></li>
                             <?php if (isset($_SESSION['user_id'])) { ?>
-                                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) { ?>
+                                <?php if ($isUserAdmin) { ?>
                                     <li><a href="<?php echo $home_url; ?>/admin_dashboard.php">Admin Dashboard</a></li>
                                     <li><a href="<?php echo $home_url; ?>/register.php">Registration</a></li>
                                 <?php } else { ?>
@@ -69,7 +72,7 @@ $userName = isset($_SESSION['user_id']) ? getUserData($_SESSION['user_id'], $con
                                 <li><a href="<?php echo $home_url; ?>/logout.php">Logout</a></li>
                                 <?php if ($userName) { ?>
                                     <li class="profile-name-head">
-                                        <a href="<?php echo $home_url; ?>/dashboard.php">
+                                        <a href="<?php echo $isUserAdmin ? $home_url.'/admin_dashboard.php' : $home_url.'/dashboard.php'; ?>">
                                             <img src="assets/images/man.png">
                                             <span><?php echo $userName; ?></span>
                                         </a>

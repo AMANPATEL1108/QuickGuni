@@ -33,6 +33,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['is_admin']) && $_S
     $lecAttendanceSoftwarePackages = isset($_POST['lec_attendance_software_packages']) ? $_POST['lec_attendance_software_packages'] : '';
     $lecAttendanceSoftwareEngi = isset($_POST['lec_attendance_software_engi']) ? $_POST['lec_attendance_software_engi'] : '';
 
+// Check if the email is already registered
+$stmtCheckEmail = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = ?");
+$stmtCheckEmail->bind_param("s", $email);
+$stmtCheckEmail->execute();
+$stmtCheckEmail->bind_result($emailCount);
+$stmtCheckEmail->fetch();
+$stmtCheckEmail->close();
+
+if ($emailCount > 0) {
+    // Email is already registered, display an error message
+    echo '<script>';
+    echo 'alert("Error: Email is already registered.");';
+    echo 'window.location.href = "register.php";'; // Redirect back to registration page
+    echo '</script>';
+    exit;
+}
+
+
         // Hash the password using bcrypt
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
