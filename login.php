@@ -76,11 +76,11 @@ $conn->close();
                     <div class="login-screen">
                         <h2>Login</h2>
                         <form method="post">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" required><br>
+                            <!-- <label for="email">Email:</label> -->
+                            <input type="email" name="email" placeholder="Email" required><br>
 
-                            <label for="password">Password:</label>
-                            <input type="password" name="password" required><br>
+                            <!-- <label for="password">Password:</label> -->
+                            <input type="password" placeholder="Password" name="password" required><br>
 
                             <button type="submit">Login</button>
                         </form>

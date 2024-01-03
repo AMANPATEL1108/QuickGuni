@@ -45,7 +45,7 @@ $stmt->close();
                             <li class="tab-items" onclick="toggleTab('results_data')"><img src="assets/images/results.png"><span>Results</span></li>
                             <li class="tab-items" onclick="toggleTab('attendance_data')"><img src="assets/images/attendance.png"><span>Attendance Details</span></li>
                             <li class="tab-items" onclick="toggleTab('teachers_data')"><img src="assets/images/training.png"><span>Teacher Details</span></li>
-
+                            <li class="tab-items" onclick="toggleTab('materials_data')"><img src="assets/images/books.png"><span>Study Materials</span></li>
                             <li class="tab-items" id="logouts-links"><img src="assets/images/turn-off.png"><a href="<?php echo $home_url; ?>/logout.php"><span>Log Out</span></a></li>
                         </ul>
                     </div>
@@ -358,6 +358,60 @@ $stmt->close();
                                             <div class="info-divs">
                                                 <h4>Email</h4>
                                                 <p>dy@gmail.com</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-contents" id="materials_data">
+
+                                <div class="subs-heads">
+                                    <h2>Study Materials</h2>
+                                </div>
+
+                                <div class="inner-dash-details">
+                                    <div class="rows heads-in-sub">                        
+                                        <div class="cols-50">
+                                            <h3>Access - Materials</h3>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+
+                                        <div class="cols-50">
+                                            <div class="info-divs">
+                                                <h4>MAD</h4>
+                                                <p><a href="https://drive.google.com/file/d/1IaPfIUBPVuPMZwIAWtHy4RTGcxiyZbPi/view?usp=drive_link" target="_blank">Click Here</a></p>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="cols-50">
+                                            <div class="info-divs">
+                                                <h4>NodeJs</h4>
+                                                <p><a href="https://drive.google.com/file/d/1IaPfIUBPVuPMZwIAWtHy4RTGcxiyZbPi/view?usp=drive_link" target="_blank">Click Here</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="cols-50">
+                                            <div class="info-divs">
+                                                <h4>Software Engi.</h4>
+                                                <p><a href="https://drive.google.com/file/d/1IaPfIUBPVuPMZwIAWtHy4RTGcxiyZbPi/view?usp=drive_link" target="_blank">Click Here</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="cols-50">
+                                            <div class="info-divs">
+                                                <h4>Software Packages</h4>
+                                                <p><a href="https://drive.google.com/file/d/1IaPfIUBPVuPMZwIAWtHy4RTGcxiyZbPi/view?usp=drive_link" target="_blank">Click Here</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="cols-50">
+                                            <div class="info-divs">
+                                                <h4>Computer Networks</h4>
+                                                <p><a href="https://drive.google.com/file/d/1IaPfIUBPVuPMZwIAWtHy4RTGcxiyZbPi/view?usp=drive_link" target="_blank">Click Here</a></p>
                                             </div>
                                         </div>
 

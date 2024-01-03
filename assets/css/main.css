@@ -326,7 +326,7 @@ text-align: center;
 /* Style for the login screen container */
 
 .login-screen {
-width: 300px;
+width: 380px;
 margin: 18px auto;
 padding: 20px;
 text-align: center;
@@ -340,6 +340,10 @@ align-items: center;
 height: 100%;
 }
 
+.login-screen form {
+    width: 100%;
+    text-align: left;
+}
 
 /* Style for the login screen title */
 
@@ -825,4 +829,20 @@ table.dataTable tbody tr {
 .change-password-form .rows .cols-50 {
     width: 100%;
     text-align: left;
+}
+
+footer {
+    background-position: center;
+    min-height: 100px;
+    background: #484747;
+    /* background: linear-gradient(to right, #f89f0457, #fcd89c); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+footer p {
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #FFF;
 }

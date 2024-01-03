@@ -281,7 +281,7 @@ if ($userID) {
              echo '    </div>';
              echo '</div>';
 
-            echo '<a href="' . $home_url . '/dashboard.php" class="btn btn-default">Back to Dashboard</a>';
+            // echo '<a href="' . $home_url . '/dashboard.php" class="btn btn-default">Back to Dashboard</a>';
 
             echo '</div></div></div></main>';
 

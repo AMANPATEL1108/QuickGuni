@@ -46,8 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Update user details in the database
 try {
     $stmt = $conn->prepare("UPDATE users SET name=?, email=?, address=?, phone_number=?, enrollment_number=?, join_date=?, class_batch=?, current_degree=?, accommodation=?, current_semester=?, marks_mad=?, marks_nodejs=?, marks_cn=?, marks_software_packages=?, marks_software_engi=?, lab_attendance_mad=?, lab_attendance_nodejs=?, lab_attendance_cn=?, lab_attendance_software_packages=?, lab_attendance_software_engi=?, lec_attendance_mad=?, lec_attendance_nodejs=?, lec_attendance_cn=?, lec_attendance_software_packages=?, lec_attendance_software_engi=? WHERE id=?");
-    
-    $stmt->bind_param("sssssssssiiiiiiiiiiiiiiiiii", $name, $email, $address, $phone_number, $enrollment_number, $join_date, $class_batch, $current_degree, $accommodation, $current_semester, $marks_mad, $marks_nodejs, $marks_cn, $marks_software_packages, $marks_software_engi, $lab_attendance_mad, $labAttendanceNodeJs, $labAttendanceCN, $labAttendanceSoftwarePackages, $labAttendanceSoftwareEngi, $lecAttendanceMAD, $lecAttendanceNodeJs, $lecAttendanceCN, $lecAttendanceSoftwarePackages, $lecAttendanceSoftwareEngi, $userID);
+    if (!$stmt) {
+        die("Error in SQL query: " . $conn->error);
+    }
+
+    $stmt->bind_param("sssssssssiiiiiiiiiiiiiiiii", $name, $email, $address, $phone_number, $enrollment_number, $join_date, $class_batch, $current_degree, $accommodation, $current_semester, $marks_mad, $marks_nodejs, $marks_cn, $marks_software_packages, $marks_software_engi, $lab_attendance_mad, $labAttendanceNodeJs, $labAttendanceCN, $labAttendanceSoftwarePackages, $labAttendanceSoftwareEngi, $lecAttendanceMAD, $lecAttendanceNodeJs, $lecAttendanceCN, $lecAttendanceSoftwarePackages, $lecAttendanceSoftwareEngi, $userID);
 
     // Execute the statement
     $stmt->execute();
@@ -58,8 +61,9 @@ try {
         header('Location: admin_dashboard.php');
         exit;
     } else {
-        echo "Update failed.";
+        echo "Update failed: " . $stmt->error;
     }
+    
 
     $stmt->close();
 } catch (Exception $e) {

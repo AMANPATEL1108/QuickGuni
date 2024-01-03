@@ -1,3 +1,13 @@
+<footer>
+  <div class="container">
+    <?php $currentYear = date("Y"); ?>
+    <p class="">QuickGuni  &copy;<?php echo "$currentYear"; ?>, All Right Reserved.</p>
+  </div>
+</footer>
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -55,11 +65,7 @@ $(document).ready(function() {
     });//End of create main table
 
   
-  $('#example tbody').on( 'click', 'tr', function () {
-   
-    alert(table.row( this ).data()[0]);
-
-} );
+ 
 });
 
 </script>

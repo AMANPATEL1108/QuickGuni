@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="rows">
                                 <div class="cols-50">
                                      <label for="join_date">Joining Date:</label>
-                                     <input type="text" name="join_date">
+                                     <input type="date" name="join_date" required>
                                 </div> 
                                 <div class="cols-50">
                                      <label for="class_batch">Class / Batch: (Ex:- B-B1)</label>
