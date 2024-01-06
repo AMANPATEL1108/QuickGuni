@@ -7,6 +7,8 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
     // Retrieve form data
     $name = $_POST['name'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $password = $_POST['password']; // Store the password as plain text
     $address = $_POST['address'];
@@ -55,10 +57,10 @@ if ($emailCount > 0) {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Prepare and execute the SQL statement (replace with your actual database logic)
-        $stmt = $conn->prepare("INSERT INTO users (name, email, password, address, phone_number, enrollment_number, accommodation, join_date, class_batch, current_degree, current_semester, marks_mad, marks_nodejs, marks_cn, marks_software_packages, marks_software_engi, lab_attendance_mad, lab_attendance_nodejs, lab_attendance_cn, lab_attendance_software_packages, lab_attendance_software_engi, lec_attendance_mad, lec_attendance_nodejs, lec_attendance_cn, lec_attendance_software_packages, lec_attendance_software_engi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name,  name, email, password, address, phone_number, enrollment_number, accommodation, join_date, class_batch, current_degree, current_semester, marks_mad, marks_nodejs, marks_cn, marks_software_packages, marks_software_engi, lab_attendance_mad, lab_attendance_nodejs, lab_attendance_cn, lab_attendance_software_packages, lab_attendance_software_engi, lec_attendance_mad, lec_attendance_nodejs, lec_attendance_cn, lec_attendance_software_packages, lec_attendance_software_engi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
 
         // Update the bind_param based on the number and types of fields in your SQL statement
-        $stmt->bind_param("ssssssssssssssssssssssssss", $name, $email, $hashedPassword, $address, $phone, $enrollmentNumber, $accommodation, $joinDate, $classBatch, $currentDegree, $currentSemester, $marksMAD, $marksNodeJs, $marksCN, $marksSoftwarePackages, $marksSoftwareEngi, $labAttendanceMAD, $labAttendanceNodeJs, $labAttendanceCN, $labAttendanceSoftwarePackages, $labAttendanceSoftwareEngi, $lecAttendanceMAD, $lecAttendanceNodeJs, $lecAttendanceCN, $lecAttendanceSoftwarePackages, $lecAttendanceSoftwareEngi);
+        $stmt->bind_param("ssssssssssssssssssssssssssss", $first_name, $last_name,  $name, $email, $hashedPassword, $address, $phone, $enrollmentNumber, $accommodation, $joinDate, $classBatch, $currentDegree, $currentSemester, $marksMAD, $marksNodeJs, $marksCN, $marksSoftwarePackages, $marksSoftwareEngi, $labAttendanceMAD, $labAttendanceNodeJs, $labAttendanceCN, $labAttendanceSoftwarePackages, $labAttendanceSoftwareEngi, $lecAttendanceMAD, $lecAttendanceNodeJs, $lecAttendanceCN, $lecAttendanceSoftwarePackages, $lecAttendanceSoftwareEngi);
 
 
 

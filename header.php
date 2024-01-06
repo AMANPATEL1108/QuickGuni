@@ -15,20 +15,20 @@ include 'db_config.php';
 // Assuming you have a function to get user data based on the user_id
 function getUserData($userId, $conn) {
     // Replace this with your actual database query
-    $stmt = $conn->prepare("SELECT name, is_admin FROM users WHERE id = ?");
+    $stmt = $conn->prepare("SELECT first_name, is_admin FROM users WHERE id = ?");
     $stmt->bind_param("i", $userId);
     $stmt->execute();
     $stmt->bind_result($userName, $isAdmin);
 
     if ($stmt->fetch()) {
-        return ['name' => $userName, 'is_admin' => $isAdmin];
+        return ['first_name' => $userName, 'is_admin' => $isAdmin];
     } else {
         return false;
     }
 }
 
 $userData = isset($_SESSION['user_id']) ? getUserData($_SESSION['user_id'], $conn) : false;
-$userName = $userData ? $userData['name'] : false;
+$userName = $userData ? $userData['first_name'] : false;
 $isUserAdmin = $userData ? $userData['is_admin'] : false;
 ?>
 

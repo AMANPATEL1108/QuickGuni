@@ -80,8 +80,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             <div class="rows">
                                 <div class="cols-50">
-                                    <label for="name">Name:</label>
-                                    <input type="text" name="name" required>
+                                    <label for="first_name">First Name:</label>
+                                    <input type="text" name="first_name"  id="first_name" required>
+                                </div> 
+                                <div class="cols-50">
+                                    <label for="last_name">Last Name:</label>
+                                    <input type="text" name="last_name"  id="last_name" required>
+                                </div> 
+                            </div>
+
+                            <div class="rows">
+                                <div class="cols-50">
+                                    <label for="name">Full Name:</label>
+                                    <input type="text" name="name" id="full_name" readonly  required>
                                 </div> 
                                 <div class="cols-50">
                                     <label for="email">Email:</label>

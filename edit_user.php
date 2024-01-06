@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate and sanitize input data
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
+    $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
     $phone_number = filter_input(INPUT_POST, 'phone_number', FILTER_SANITIZE_STRING);
@@ -45,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Update user details in the database
 // Update user details in the database
 try {
-    $stmt = $conn->prepare("UPDATE users SET name=?, email=?, address=?, phone_number=?, enrollment_number=?, join_date=?, class_batch=?, current_degree=?, accommodation=?, current_semester=?, marks_mad=?, marks_nodejs=?, marks_cn=?, marks_software_packages=?, marks_software_engi=?, lab_attendance_mad=?, lab_attendance_nodejs=?, lab_attendance_cn=?, lab_attendance_software_packages=?, lab_attendance_software_engi=?, lec_attendance_mad=?, lec_attendance_nodejs=?, lec_attendance_cn=?, lec_attendance_software_packages=?, lec_attendance_software_engi=? WHERE id=?");
+    $stmt = $conn->prepare("UPDATE users SET first_name=?, last_name=?, name=?, email=?, address=?, phone_number=?, enrollment_number=?, join_date=?, class_batch=?, current_degree=?, accommodation=?, current_semester=?, marks_mad=?, marks_nodejs=?, marks_cn=?, marks_software_packages=?, marks_software_engi=?, lab_attendance_mad=?, lab_attendance_nodejs=?, lab_attendance_cn=?, lab_attendance_software_packages=?, lab_attendance_software_engi=?, lec_attendance_mad=?, lec_attendance_nodejs=?, lec_attendance_cn=?, lec_attendance_software_packages=?, lec_attendance_software_engi=? WHERE id=?");
     if (!$stmt) {
         die("Error in SQL query: " . $conn->error);
     }
 
-    $stmt->bind_param("sssssssssiiiiiiiiiiiiiiiii", $name, $email, $address, $phone_number, $enrollment_number, $join_date, $class_batch, $current_degree, $accommodation, $current_semester, $marks_mad, $marks_nodejs, $marks_cn, $marks_software_packages, $marks_software_engi, $lab_attendance_mad, $labAttendanceNodeJs, $labAttendanceCN, $labAttendanceSoftwarePackages, $labAttendanceSoftwareEngi, $lecAttendanceMAD, $lecAttendanceNodeJs, $lecAttendanceCN, $lecAttendanceSoftwarePackages, $lecAttendanceSoftwareEngi, $userID);
+    $stmt->bind_param("sssssssssssiiiiiiiiiiiiiiiii",  $first_name, $last_name,  $name, $email, $address, $phone_number, $enrollment_number, $join_date, $class_batch, $current_degree, $accommodation, $current_semester, $marks_mad, $marks_nodejs, $marks_cn, $marks_software_packages, $marks_software_engi, $lab_attendance_mad, $labAttendanceNodeJs, $labAttendanceCN, $labAttendanceSoftwarePackages, $labAttendanceSoftwareEngi, $lecAttendanceMAD, $lecAttendanceNodeJs, $lecAttendanceCN, $lecAttendanceSoftwarePackages, $lecAttendanceSoftwareEngi, $userID);
 
     // Execute the statement
     $stmt->execute();
@@ -121,8 +123,19 @@ try {
 
                             <div class="rows">
                                 <div class="cols-50">
-                                    <label for="name">Name:</label>
-                                    <input type="text" name="name" value="<?php echo $user['name']; ?>" required>
+                                    <label for="first_name">First Name:</label>
+                                    <input type="text" name="first_name" value="<?php echo $user['first_name']; ?>" id="first_name" required>
+                                </div> 
+                                <div class="cols-50">
+                                    <label for="last_name">Last Name:</label>
+                                    <input type="text" name="last_name" value="<?php echo $user['last_name']; ?>" id="last_name"  required>
+                                </div> 
+                            </div>
+
+                            <div class="rows">
+                                <div class="cols-50">
+                                    <label for="name">Full Name:</label>
+                                    <input type="text" name="name" value="<?php echo $user['name']; ?>" id="full_name" readonly required>
                                 </div> 
                                 <div class="cols-50">
                                     <label for="email">Email:</label>

@@ -1,7 +1,7 @@
 <footer>
   <div class="container">
     <?php $currentYear = date("Y"); ?>
-    <p class="">QuickGuni  &copy;<?php echo "$currentYear"; ?>, All Right Reserved.</p>
+    <p class="">QuickDash  &copy;<?php echo "$currentYear"; ?>, All Right Reserved.</p>
   </div>
 </footer>
 
@@ -133,6 +133,33 @@ $(document).ready(function() {
                 }
             });
         });
+    </script>
+
+    <script>
+   
+    document.addEventListener("DOMContentLoaded", function () {
+        var firstNameInput = document.getElementById('first_name');
+        var lastNameInput = document.getElementById('last_name');
+        var fullNameInput = document.getElementById('full_name');
+
+        // Add an event listener to the First Name input
+        firstNameInput.addEventListener('input', updateFullName);
+
+        // Add an event listener to the Last Name input
+        lastNameInput.addEventListener('input', updateFullName);
+
+        // Function to update the Full Name field
+        function updateFullName() {
+            var firstName = firstNameInput.value;
+            var lastName = lastNameInput.value;
+            var fullName = firstName + ' ' + lastName;
+            fullNameInput.value = fullName;
+        }
+    });
+
+
+</script>
+
     </script>
 
 </body>

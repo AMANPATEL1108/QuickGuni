@@ -73,6 +73,9 @@
     .subs-heads h2 {
         font-size: 22px;
     }
+    .page-content-in {
+        padding: 30px 0;
+    }
 }
 
 
@@ -95,6 +98,10 @@
     }
     .page-headings {
         min-height: 215px;
+    }
+    .login-screen {
+        width: auto;
+        padding: 42px 30px;
     }
    
 }

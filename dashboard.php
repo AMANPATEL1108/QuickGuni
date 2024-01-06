@@ -10,10 +10,10 @@ if (!isset($_SESSION['user_id'])) {
 
 // Fetch user details from the database
 $userId = $_SESSION['user_id'];
-$stmt = $conn->prepare("SELECT name, email, address, phone_number, enrollment_number, accommodation, join_date, class_batch, current_degree, current_semester, marks_mad, marks_nodejs, marks_cn, marks_software_packages, marks_software_engi, lab_attendance_mad, lab_attendance_nodejs, lab_attendance_cn, lab_attendance_software_packages, lab_attendance_software_engi, lec_attendance_mad, lec_attendance_nodejs, lec_attendance_cn, lec_attendance_software_packages, lec_attendance_software_engi FROM users WHERE id = ?");
+$stmt = $conn->prepare("SELECT first_name, last_name,  name, email, address, phone_number, enrollment_number, accommodation, join_date, class_batch, current_degree, current_semester, marks_mad, marks_nodejs, marks_cn, marks_software_packages, marks_software_engi, lab_attendance_mad, lab_attendance_nodejs, lab_attendance_cn, lab_attendance_software_packages, lab_attendance_software_engi, lec_attendance_mad, lec_attendance_nodejs, lec_attendance_cn, lec_attendance_software_packages, lec_attendance_software_engi FROM users WHERE id = ?");
 $stmt->bind_param("i", $userId);
 $stmt->execute();
-$stmt->bind_result($userName, $userEmail, $userAddress, $userPhone, $enrollment_number, $accommodation, $join_date, $class_batch, $current_degree, $current_semester, $marks_mad, $marks_nodejs, $marks_cn, $marks_software_packages, $marks_software_engi, $lab_attendance_mad, $lab_attendance_nodejs, $lab_attendance_cn, $lab_attendance_software_packages, $lab_attendance_software_engi, $lec_attendance_mad, $lec_attendance_nodejs, $lec_attendance_cn, $lec_attendance_software_packages, $lec_attendance_software_engi);
+$stmt->bind_result($first_name, $last_name, $userName, $userEmail, $userAddress, $userPhone, $enrollment_number, $accommodation, $join_date, $class_batch, $current_degree, $current_semester, $marks_mad, $marks_nodejs, $marks_cn, $marks_software_packages, $marks_software_engi, $lab_attendance_mad, $lab_attendance_nodejs, $lab_attendance_cn, $lab_attendance_software_packages, $lab_attendance_software_engi, $lec_attendance_mad, $lec_attendance_nodejs, $lec_attendance_cn, $lec_attendance_software_packages, $lec_attendance_software_engi);
 $stmt->fetch();
 $stmt->close();
 ?>
@@ -64,6 +64,18 @@ $stmt->close();
 
                                 <div class="inner-dash-details">
                                     <div class="rows">
+                                        <div class="cols-50">
+                                            <div class="info-divs">
+                                                <h4>First Name</h4>
+                                                <p><?php echo $first_name; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="cols-50">
+                                            <div class="info-divs">
+                                                <h4>Last Name</h4>
+                                                <p><?php echo $last_name; ?></p>
+                                            </div>
+                                        </div>
                                         <div class="cols-50">
                                             <div class="info-divs">
                                                 <h4>Full Name</h4>

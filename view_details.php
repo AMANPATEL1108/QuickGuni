@@ -29,6 +29,8 @@ if ($userID) {
         if ($user = $result->fetch_assoc()) {
             // Assign user details to individual variables
             $name = $user['name'];
+            $first_name = $user['first_name'];
+            $last_name = $user['last_name'];
             $email = $user['email'];
             $address = $user['address'];
             $phone = $user['phone_number'];
@@ -96,7 +98,19 @@ if ($userID) {
             echo '    <div class="rows">';
             echo '        <div class="cols-50">';
             echo '            <div class="info-divs">';
-            echo '                <h4>Student Name</h4>';
+            echo '                <h4>Student First Name</h4>';
+            echo "                <p>{$first_name}</p>";
+            echo '            </div>';
+            echo '        </div>';
+            echo '        <div class="cols-50">';
+            echo '            <div class="info-divs">';
+            echo '                <h4>Student Last Name</h4>';
+            echo "                <p>{$last_name}</p>";
+            echo '            </div>';
+            echo '        </div>';
+            echo '        <div class="cols-50">';
+            echo '            <div class="info-divs">';
+            echo '                <h4>Student Full Name</h4>';
             echo "                <p>{$name}</p>";
             echo '            </div>';
             echo '        </div>';
