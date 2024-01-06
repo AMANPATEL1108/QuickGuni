@@ -846,3 +846,83 @@ footer p {
     font-weight: 700;
     color: #FFF;
 }
+.cs-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}.cs-box ul {
+    list-style: none;
+    position: relative;
+}
+.cs-box ul li:after {
+    position: absolute;
+    content: "";
+    top: 6px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #e2242b;
+    border-radius: 100%;
+}
+.cs-box ul li {
+    position: relative;    
+    padding-left: 24px;
+    margin-bottom: 6px;
+
+}
+.cs-box h4 {
+    border-bottom: 4px solid #f89f04;
+    padding-bottom: 8px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#editor {
+    height: 300px; /* Set the desired height in pixels */
+}
+
+
+
+
+
+
+
+
+
+
+ /* Hamburger menu styles */
+ .hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger-menu div {
+    width: 31px;
+    height: 4px;
+    background-color: #242424;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+.menu-toggle {
+    display: none;
+}
+
+.profile-mobiles{
+    display: none;
+}
+.profile-mobiles .profile-name-head img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+.profile-mobiles .profile-name-head a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-mobiles .profile-name-head a span {
+    font-weight: 700;
+    color: #000;
+}

@@ -35,6 +35,8 @@ $isUserAdmin = $userData ? $userData['is_admin'] : false;
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -44,7 +46,13 @@ $isUserAdmin = $userData ? $userData['is_admin'] : false;
 
     <!-- Your custom CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
     
+
+
+
+
 </head>
 
 <body>
@@ -57,7 +65,23 @@ $isUserAdmin = $userData ? $userData['is_admin'] : false;
                 <div class="header-logo">
                     <a href="<?php echo $home_url; ?>"><img src="assets/images/logo.png"></a>
                 </div>
+                <div class="profile-mobiles">
+                    <?php if ($userName) { ?>
+                        <div class="profile-name-head">
+                            <a href="<?php echo $isUserAdmin ? $home_url.'/admin_dashboard.php' : $home_url.'/dashboard.php'; ?>">
+                                <img src="assets/images/man.png">
+                                <span><?php echo $userName; ?></span>
+                            </a>
+                    </div>
+                    <?php } ?>
+                </div>
                 <div class="header-menu">
+                    <input type="checkbox" class="menu-toggle" id="menu-toggle">
+                    <label class="hamburger-menu" for="menu-toggle">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </label>
                     <nav>
                         <ul>
                             <li><a href="<?php echo $home_url; ?>">Home</a></li>

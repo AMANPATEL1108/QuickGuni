@@ -14,7 +14,6 @@
 <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
 <script src="script.js"></script>
 
-
 <script>
     $(document).ready(function () {
         // Attach an event listener to the email input field
@@ -103,7 +102,38 @@ $(document).ready(function() {
 });
 
 </script>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var menuToggle = document.querySelector('.menu-toggle');
+            var navMenu = document.querySelector('.header-menu nav ul');
 
+            menuToggle.addEventListener('change', function () {
+                if (menuToggle.checked) {
+                    navMenu.classList.add('show');
+                } else {
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var menuToggle = document.querySelector('.menu-toggle');
+            var navMenu = document.querySelector('.header-menu nav ul');
+
+            menuToggle.addEventListener('change', function () {
+                if (menuToggle.checked) {
+                    var headerHeight = document.querySelector('header').offsetHeight;
+                    navMenu.style.top = headerHeight + 'px';
+                    navMenu.classList.add('show');
+                } else {
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
 
 </body>
 
