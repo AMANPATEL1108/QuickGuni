@@ -29,7 +29,6 @@ Bootstrap: Frontend framework for responsive design.
 Database Schema
 The system uses MySQL database to store information. Here's a basic schema:
 
-![Screenshot 2024-03-07 195157](https://github.com/AMANPATEL1108/QuickGuni/assets/108643338/670114d4-3b7c-4d10-9652-6aa06d151cb8)
 ![Screenshot 2024-03-07 195157](https://github.com/AMANPATEL1108/QuickGuni/assets/108643338/4ec25062-7f52-496f-8f9b-483a4952fda8)
 ![Screenshot 2024-03-07 195241](https://github.com/AMANPATEL1108/QuickGuni/assets/108643338/5c94bc6a-c986-43cc-88a7-362d89aacf50)
 ![Screenshot 2024-03-07 195303](https://github.com/AMANPATEL1108/QuickGuni/assets/108643338/51e77ac0-ac15-482d-96ae-5030e45b6369)
