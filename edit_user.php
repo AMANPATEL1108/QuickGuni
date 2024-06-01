@@ -12,8 +12,13 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || !$_SESSION[
 // Get the user ID from the query string
 $userID = isset($_GET['id']) ? $_GET['id'] : null;
 
+<<<<<<< HEAD
 // Handle form submission to update user information
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+=======
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Handle form submission to update user information
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
 
     // Validate and sanitize input data
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -23,7 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
     $phone_number = filter_input(INPUT_POST, 'phone_number', FILTER_SANITIZE_STRING);
     $enrollment_number = filter_input(INPUT_POST, 'enrollment_number', FILTER_SANITIZE_STRING);
+<<<<<<< HEAD
     $join_date = isset($_POST['join_date']) ? $_POST['join_date'] : null;
+=======
+    $join_date = $_POST['join_date'];
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
     $class_batch = filter_input(INPUT_POST, 'class_batch', FILTER_SANITIZE_STRING);
     $current_degree = filter_input(INPUT_POST, 'current_degree', FILTER_SANITIZE_STRING);
     $accommodation = filter_input(INPUT_POST, 'accommodation', FILTER_SANITIZE_STRING);
@@ -44,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lecAttendanceSoftwarePackages = filter_input(INPUT_POST, 'lec_attendance_software_packages', FILTER_VALIDATE_INT);
     $lecAttendanceSoftwareEngi = filter_input(INPUT_POST, 'lec_attendance_software_engi', FILTER_VALIDATE_INT);
 
+<<<<<<< HEAD
     // Update user details in the database
     try {
         $stmt = $conn->prepare("UPDATE users SET first_name=?, last_name=?, name=?, email=?, address=?, phone_number=?, enrollment_number=?, join_date=?, class_batch=?, current_degree=?, accommodation=?, current_semester=?, marks_mad=?, marks_nodejs=?, marks_cn=?, marks_software_packages=?, marks_software_engi=?, lab_attendance_mad=?, lab_attendance_nodejs=?, lab_attendance_cn=?, lab_attendance_software_packages=?, lab_attendance_software_engi=?, lec_attendance_mad=?, lec_attendance_nodejs=?, lec_attendance_cn=?, lec_attendance_software_packages=?, lec_attendance_software_engi=? WHERE id=?");
@@ -71,6 +81,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error: " . $e->getMessage();
     }
 
+=======
+// Update user details in the database
+// Update user details in the database
+try {
+    $stmt = $conn->prepare("UPDATE users SET first_name=?, last_name=?, name=?, email=?, address=?, phone_number=?, enrollment_number=?, join_date=?, class_batch=?, current_degree=?, accommodation=?, current_semester=?, marks_mad=?, marks_nodejs=?, marks_cn=?, marks_software_packages=?, marks_software_engi=?, lab_attendance_mad=?, lab_attendance_nodejs=?, lab_attendance_cn=?, lab_attendance_software_packages=?, lab_attendance_software_engi=?, lec_attendance_mad=?, lec_attendance_nodejs=?, lec_attendance_cn=?, lec_attendance_software_packages=?, lec_attendance_software_engi=? WHERE id=?");
+    if (!$stmt) {
+        die("Error in SQL query: " . $conn->error);
+    }
+
+    $stmt->bind_param("sssssssssssiiiiiiiiiiiiiiiii",  $first_name, $last_name,  $name, $email, $address, $phone_number, $enrollment_number, $join_date, $class_batch, $current_degree, $accommodation, $current_semester, $marks_mad, $marks_nodejs, $marks_cn, $marks_software_packages, $marks_software_engi, $lab_attendance_mad, $labAttendanceNodeJs, $labAttendanceCN, $labAttendanceSoftwarePackages, $labAttendanceSoftwareEngi, $lecAttendanceMAD, $lecAttendanceNodeJs, $lecAttendanceCN, $lecAttendanceSoftwarePackages, $lecAttendanceSoftwareEngi, $userID);
+
+    // Execute the statement
+    $stmt->execute();
+
+    // Check if the update was successful
+    if ($stmt->affected_rows > 0) {
+        // Redirect back to the admin dashboard after updating
+        header('Location: admin_dashboard.php');
+        exit;
+    } else {
+        echo "Update failed: " . $stmt->error;
+    }
+    
+
+    $stmt->close();
+} catch (Exception $e) {
+    // Handle exceptions, log errors, or display a user-friendly message
+    echo "Error: " . $e->getMessage();
+}
+
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
 
 } else {
     // Fetch user details for the given ID

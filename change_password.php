@@ -59,11 +59,19 @@ try {
         // Display the change password form
         include 'header.php';
         ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
         <!-- Main Body is here -->
         <main class="site-main change-password-page">
             <div class="site-content-inner">
                 <div class="containersss">
+<<<<<<< HEAD
                     <div class="page-headings" style="background-image:url('assets/images/dashboard.jpg');">
+=======
+                <div class="page-headings" style="background-image:url('assets/images/dashboard.jpg');">
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
                         <h2>Change Password for <?php echo $user['name']; ?></h2>
                         <div class="breadcrumb-list">
                             <ul>
@@ -75,10 +83,18 @@ try {
                             </ul>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="container change-password-form">
                         <!-- Add an HTML form with input fields to change the user's password -->
                         <div class="dashin-back">
                             <div class="delete-userbox">
+=======
+
+                    <div class="container change-password-form">
+                        <!-- Add an HTML form with input fields to change the user's password -->
+                        <div class="dashin-back">
+                             <div class="delete-userbox">
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
                                 <h4>Change Password</h4>
                                 <form action="change_password.php?id=<?php echo $userID; ?>" method="post">
                                     <div class="rows">
@@ -87,12 +103,20 @@ try {
                                             <input type="password" name="password" required>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
                                     <div class="rows">
                                         <div class="cols-50">
                                             <label for="confirm_password">Confirm Password:</label>
                                             <input type="password" name="confirm_password" required>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
                                     <div class="rows submt-rows">
                                         <input type="submit" value="Change Password">
                                     </div>
@@ -103,9 +127,17 @@ try {
                 </div>
             </div>
         </main>
+<<<<<<< HEAD
         <!-- Footer is here -->
         <?php include 'footer.php'; ?>
     <?php
+=======
+
+        <!-- Footer is here -->
+        <?php include 'footer.php'; ?>
+
+        <?php
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
     } else {
         echo "User not found.";
     }
@@ -117,4 +149,8 @@ try {
 }
 
 $conn->close();
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0

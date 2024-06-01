@@ -12,7 +12,11 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || !$_SESSION[
 // Get the user ID from the query string
 $userID = isset($_GET['id']) ? $_GET['id'] : null;
 
+<<<<<<< HEAD
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+=======
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+>>>>>>> e5dca82098161009b1522064f6fa03d9caaf3ef0
     // Handle form submission to delete user
 
     try {
